@@ -40,9 +40,9 @@ Class Yahtzoom:
 		LargeStraight
 			-Checks to see if there is a string of "1,2,3,4,5" or "2,3,4,5,6" and if either of these occur, the variable "LargeStraight" stores 40, if not it stores 0
 		ThreeofKind
-			-Checks to see if there are three of any number, if there is, sum all the dice on the board
+			-Checks to see if there are three of any number, if there is, sum all the dice on the board and store as the variable "ThreeofKind"
 		FourofKind
-			-Checks to see if there are four of any number, if there is, sum all the dice on the board
+			-Checks to see if there are four of any number, if there is, sum all the dice on the board and store as the variable "FourofKind"
 		Yahtzoom
-			- 
+			-Checks to see if there are 5 of any number, if there is, the variable "Yahtzoom" stores 50, if not it stores 0
 
