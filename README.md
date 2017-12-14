@@ -7,7 +7,7 @@ Class Yahtzee:
 	functions:
 
 		* FirstRoll
-			- roll five random dice
+			- roll five random die
 		* SecondRoll
-		
+			- user imputs: ask which numbers you would like to save
 		* ThirdRoll
