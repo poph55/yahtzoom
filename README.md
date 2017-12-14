@@ -32,7 +32,7 @@ Class Yahtzoom:
 		Sixes
 			-adds up all of the 6's rolled and stores that number as the variable "Sixes"
 		Chance
-			-adds up all of the dice on the board
+			-adds up all of the dice on the board, if this value is 17, "Chance" is stored as 35, otherwise, store "Chance" as the sum of all dice on the board
 		FullHouse
 			-Checks to see if there exists exactly 2 of one number, and exactly three of another number. If true, the variable "FullHouse" stores 25, if not, it stores 0
 		SmallStraight
