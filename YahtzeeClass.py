@@ -7,7 +7,7 @@ class Yahtzoom:
 
     #Function that selects which one that you want to reroll
 	def reroll(self):
-		print("Enter the number of each die you would like to reroll separately. Press 0 to continue.")
+		rollagain =input('Which dice would you like to reroll?')
 
 	#Special print if you get Yahtzee
 	def yahtzoomprint(self):
