@@ -1,6 +1,8 @@
+#Runner Class
 from DiceClass import Dice
 from YahtzeeClass import Yahtzoom
 
+#Executing the main functions
 die1 =Dice()
 die1.roll()
 print(die1.value)
