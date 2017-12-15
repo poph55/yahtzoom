@@ -1,6 +1,6 @@
 #Runner Class
 from DiceClass import Dice
-#from YahtzeeClass import Yahtzoom
+from YahtzeeClass import Yahtzoom
 
 #Executing the main functions
 list1= []
@@ -21,6 +21,12 @@ die5.roll()
 list1.append(die5.value)
 
 print(list1)
+
+reroll1 = Yahtzoom(list1)
+reroll1.reroll()
+
+print(list1)
+
 
 #Roll Again Function(Run twice)
 
