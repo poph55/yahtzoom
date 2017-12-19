@@ -33,7 +33,7 @@ for x in range(0,13):
 		print('That is not an option!')
 		again = str(input('Would you like to roll your dice again? Y/N  \n'))
 	if again == 'y':
-		game1.reroll()
+		game1.reroll(list1)
 
 		print(list1)
 
@@ -43,7 +43,7 @@ for x in range(0,13):
 			print('That is not an option!')
 			again = str(input('Would you like to roll your dice again? Y/N  \n'))
 		if again == 'y':
-			game1.reroll()
+			game1.reroll(list1)
 		print('Here are you final dice rolls: \n')
 		print(list1)
 

@@ -36,8 +36,9 @@ class Yahtzoom:
 
 
 	#Function that selects which one that you want to rhttp://collabedit.com/eroll
-	def reroll(self):
+	def reroll(self,list1):
 		rollagain = []
+		self.list1 = list1
 		while 1==1:
 			rerollinput = int(input("What dice would you like to reroll?"))
 			while rerollinput != 1 and rerollinput != 2 and rerollinput !=3 and rerollinput != 4 and rerollinput != 5 and rerollinput != 6:
