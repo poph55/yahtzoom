@@ -51,7 +51,6 @@ for x in range(0,13):
 		print('Here are you final dice rolls: \n')
 		print(list1)
 	#Picking a cateogory Function
-	print(game1.scorelist)
 	game1.score()
 	game1.choice = 'full'
 	game1.totalscore()
