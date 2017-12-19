@@ -1,7 +1,7 @@
 #Runner Class
 from DiceClass import Dice
 from YahtzeeClass import Yahtzoom
-
+scorelist = ['ones', 'twos', 'threes', 'fours', 'fives', 'sixes', 'chance', 'three-of-a-kind', 'four-of-a-kind', 'full-house', 'small-straight', 'large-straight', 'yahtzoom']
 #Executing the main functions
 list1= []
 die1 =Dice()
@@ -23,14 +23,14 @@ list1.append(die5.value)
 print(list1)
 
 #Roll Again Function(Run twice)
-reroll1 = Yahtzoom(list1)
+game1 = Yahtzoom(list1)
 again = str(input('\nWould you like to roll your dice again? Y/N  \n'))
 again = again.lower()
 while again != 'y' and again != 'n':
 	print('That is not an option!')
 	again = str(input('Would you like to roll your dice again? Y/N  \n'))
 if again == 'y':
-	reroll1.reroll()
+	game1.reroll()
 
 	print(list1)
 
@@ -40,17 +40,16 @@ if again == 'y':
 		print('That is not an option!')
 		again = str(input('Would you like to roll your dice again? Y/N  \n'))
 	if again == 'y':
-		reroll1.reroll()
+		game1.reroll()
 	print('Here are you final dice rolls: \n')
 	print(list1)
 
 elif again =='n':
 	print('Here are you final dice rolls: \n')
 	print(list1)
-
 #Picking a cateogory Function
 
 #Score Function
-reroll1.chancethreefour()
-print('\nScore:' + str(reroll1.total))
+game1.ones()
+print('\nScore:' + str(game1.total))
 #Total Sum Function
