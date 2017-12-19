@@ -1,10 +1,13 @@
 #Runner Class
 from DiceClass import Dice
 from YahtzeeClass import Yahtzoom
-scorelist = ['ones', 'twos', 'threes', 'fours', 'fives', 'sixes', 'chance', 'three-of-a-kind', 'four-of-a-kind', 'full-house', 'small-straight', 'large-straight', 'yahtzoom']
+list1 = []
+
+game1 = Yahtzoom(list1)
 #Executing the main functions
-while len(scorelist) > 0:
-	list1= []
+#while len(game1.scorelist) > 0:
+for x in range(0,3):
+	list1 = []
 	die1 =Dice()
 	die1.roll()
 	list1.append(die1.value)
@@ -50,6 +53,11 @@ while len(scorelist) > 0:
 		print(list1)
 	#Picking a cateogory Function
 
+	game1.score()
+	game1.choice = 'full'
+	game1.totalscore()
+	finaltotal = []
+	finaltotal.append(game1.finalscore)
 	#Score Function
-	print('\nScore:' + str(game1.total))
 	#Total Sum Function
+print(sum(finaltotal))
