@@ -46,6 +46,9 @@ class Yahtzoom:
 		#Scoring Function
 	def score(self):
 		print('Which cateogory would you like your score to go into?')
+		self.scorelist = ['ones', 'twos', 'threes', 'fours', 'fives', 'sixes', 'chance', 'three of a kind', 'four of a kind', 'full house', 'small straight', 'large straight', 'yahtzoom']
+		self.choice = str(input())
+		
 
 	#All of the categories that you can score with:
 	def chancethreefour(self):
