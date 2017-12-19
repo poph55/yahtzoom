@@ -1,5 +1,6 @@
 import random
 from DiceClass import Dice
+import sys
 #Class for our game Yahtzoom
 class Yahtzoom:
 	def __init__(self, list1):
@@ -33,44 +34,55 @@ class Yahtzoom:
 
 		#Scoring Function
 	def score(self):
-		print('Which cateogory would you like your score to go into?')	
-		self.scorelist = ['ones', 'twos', 'threes', 'fours', 'fives', 'sixes', 'chance', 'three-of-a-kind', 'four-of-a-kind', 'full-house', 'small-straight', 'large-straight', 'yahtzoom']
+		print('Which category would you like your score to go into?')
 		self.choice = str(input('\n'))
 		self.choice.lower()
-		if self.choice == 'ones':
+		if self.choice == 'ones' and self.ones != 'full':
 			countmult(1)
 			self.total1 = self.total
-		elif self.choice == 'twos':
+			self.ones = 'full'
+		elif self.choice == 'twos' and self.twos != 'full':
 			countmult(2)
 			self.total2 = self.total
-		elif self.choice == 'threes':
+			self.twos = 'full'
+		elif self.choice == 'threes' and self.threes != 'full':
 			countmult(3)
 			self.total3 = self.total
-		elif self.choice == 'fours':
+			self.threes = 'full'
+		elif self.choice == 'fours' and self.fours != 'full':
 			countmult(4)
 			self.total4 = self.total
-		elif self.choice == 'fives':
+			self.fours = 'full'
+		elif self.choice == 'fives' and self.fives != 'full':
 			countmult(5)
 			self.total5 = self.total
-		elif self.choice == 'sixes':
+			self.fives = 'full'
+		elif self.choice == 'sixes' and self.sixes != 'full':
 			countmult(6)
 			self.total6 = self.total
-		elif self.choice == 'chance':
+			self.sixes = 'full'
+		elif self.choice == 'chance' and self.chance != 'full':
 			chance()
-		elif self.choice =='three-of-a-kind':
+			self.chance = 'full'
+		elif self.choice =='three-of-a-kind' and self.threekind != 'full':
 			threefour()
 			self.total = self.total8
-		elif self.choice =='four-of-a-kind':
+			self.threekind = 'full'
+		elif self.choice =='four-of-a-kind' and self.fourkind != 'full':
 			threefour()
 			self.total = self.total9
-		elif self.choice == 'full-house':
+			self.fourkind = 'full'
+		elif self.choice == 'full-house' and self.johnstamos != 'full':
 			fullhouse()
-		elif self.choice == 'small-straight':
+			self.johnstamos = 'full'
+		elif self.choice == 'small-straight' and self.sstraight != 'full':
 			smallstraight()
-		elif self.choice == 'large-straight':
+			self.sstraight = 'full'
+		elif self.choice == 'large-straight' and self.lstraight != 'full':
 			largestraight()
+			self.lstraight = 'full'
 		elif self.choice == 'yahtzoom':
-			yahtzoomprint()
+			yahtzoom()
 		else:
 			print('That is wrong')
 			score()
@@ -114,7 +126,7 @@ class Yahtzoom:
 
 
 	#Special print if you get Yahtzee
-	def yahtzoomprint(self):
+	def yahtzoom(self):
 		if (die1.value == die2.value and die2.value == die3.value and die3.value == die4.value and die4.value == die5.value):
 			self.total13 += 50
 
