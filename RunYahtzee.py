@@ -2,11 +2,11 @@
 from DiceClass import Dice
 from YahtzeeClass import Yahtzoom
 list1 = []
-
+finaltotal = []
 game1 = Yahtzoom(list1)
 #Executing the main functions
 #while len(game1.scorelist) > 0:
-for x in range(0,3):
+for x in range(0,13):
 	list1 = []
 	die1 =Dice()
 	die1.roll()
@@ -27,7 +27,6 @@ for x in range(0,3):
 	print(list1)
 
 	#Roll Again Function(Run twice)
-	game1 = Yahtzoom(list1)
 	again = str(input('\nWould you like to roll your dice again? Y/N  \n'))
 	again = again.lower()
 	while again != 'y' and again != 'n':
@@ -52,11 +51,10 @@ for x in range(0,3):
 		print('Here are you final dice rolls: \n')
 		print(list1)
 	#Picking a cateogory Function
-
+	print(game1.scorelist)
 	game1.score()
 	game1.choice = 'full'
 	game1.totalscore()
-	finaltotal = []
 	finaltotal.append(game1.finalscore)
 	#Score Function
 	#Total Sum Function

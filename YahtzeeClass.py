@@ -84,7 +84,7 @@ class Yahtzoom:
 	#Special print if you get Yahtzee
 	def yahtzoom(self):
 		if (die1.value == die2.value and die2.value == die3.value and die3.value == die4.value and die4.value == die5.value):
-			self.total13 += 50
+			self.total13 = 50
 
 		print("▓██   ██▓ ▄▄▄       ██░ ██ ▄▄▄█████▓▒███████▒ ▒█████   ▒█████   ███▄ ▄███▓")
 		print(" ▒██  ██▒▒████▄    ▓██░ ██▒▓  ██▒ ▓▒▒ ▒ ▒ ▄▀░▒██▒  ██▒▒██▒  ██▒▓██▒▀█▀ ██▒")
@@ -107,48 +107,61 @@ class Yahtzoom:
 			Yahtzoom.countmult(self, 1)
 			self.total1 = self.total
 			self.ones1 = 'full'
+			self.scorelist.remove('ones')
 		elif self.choice == 'twos':# and self.twos1 != 'full':
 			Yahtzoom.countmult(self, 2)
 			self.total2 = self.total
 			self.twos1 = 'full'
+			self.scorelist.remove('twos')
 		elif self.choice == 'threes':# and self.threes1 != 'full':
 			Yahtzoom.countmult(self, 3)
 			self.total3 = self.total
 			self.threes1 = 'full'
+			self.scorelist.remove('threes')
 		elif self.choice == 'fours':# and self.fours1 != 'full':
 			Yahtzoom.countmult(self, 4)
 			self.total4 = self.total
 			self.fours1 = 'full'
+			self.scorelist.remove('fours')
 		elif self.choice == 'fives':# and self.fives1 != 'full':
 			Yahtzoom.countmult(self, 5)
 			self.total5 = self.total
 			self.fives1 = 'full'
+			self.scorelist.remove('fives')
 		elif self.choice == 'sixes':# and self.sixes1 != 'full':
 			Yahtzoom.countmult(self, 6)
 			self.total6 = self.total
 			self.sixes1 = 'full'
+			self.scorelist.remove('sixes')
 		elif self.choice == 'chance':# and self.chance1 != 'full':
 			Yahtzoom.chance(self)
 			self.chance1 = 'full'
+			self.scorelist.remove('chance')
 		elif self.choice =='three-of-a-kind':# and self.threekind != 'full':
 			Yahtzoom.threefour(self)
 			self.total8 = self.total
 			self.threekind = 'full'
+			self.scorelist.remove('three-of-a-kind')
 		elif self.choice =='four-of-a-kind':# and self.fourkind1 != 'full':
 			Yahtzoom.threefour(self)
 			self.total9 = self.total
 			self.fourkind1 = 'full'
+			self.scorelist.remove('four-of-a-kind')
 		elif self.choice == 'full-house':# and self.johnstamos != 'full':
 			Yahtzoom.fullhouse(self)
 			self.johnstamos = 'full'
+			self.scorelist.remove('full-house')
 		elif self.choice == 'small-straight':# and self.sstraight != 'full':
 			Yahtzoom.smallstraight(self)
 			self.sstraight = 'full'
+			self.scorelist.remove('small-straight')
 		elif self.choice == 'large-straight':# and self.lstraight != 'full':
 			Yahtzoom.largestraight(self)
 			self.lstraight = 'full'
+			self.scorelist.remove('large-straight')
 		elif self.choice == 'yahtzoom':
 			Yahtzoom.yahtzoom(self)
+			self.scorelist.remove('yhatzoom')
 		else:
 			print('That is wrong')
 
@@ -159,4 +172,6 @@ class Yahtzoom:
 
 	def totalscore(self):
 		self.finalscore = self.total1 + self.total2 + self.total3 + self.total4 + self.total5 + self.total6 + self.total7 + self.total8 + self.total9 + self.total10 + self.total11 + self.total12 + self.total13
-		
+		print(self.finalscore)
+
+
