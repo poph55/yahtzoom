@@ -96,9 +96,10 @@ class Yahtzoom:
 	
 
 	def chance(self):
-		self.total7 = sum(self.list1)
 		if sum(self.list == 17):
 			self.total7 = 40
+		else:
+			self.total7 = sum(self.list1)
 
 	def threefour(self):
 		self.total = sum(self.list1)
