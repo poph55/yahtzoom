@@ -71,14 +71,13 @@ class Yahtzoom:
 			largestraight()
 		elif self.choice == 'yahtzoom':
 			yahtzoomprint()
+		else:
+			print('That is wrong')
+			score()
 
 
-
-
-		
 
 	#All of the categories that you can score with:
-
 
 	def countmult(self, number):
 		self.total = self.list1.count(self.number)*self.number
