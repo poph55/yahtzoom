@@ -128,6 +128,7 @@ class Yahtzoom:
 		print('Which category would you like your score to go into?')
 		self.choice = str(input('\n' + str(self.scorelist) + '\n'))
 		self.choice.lower()
+		self.choice.strip()
 		if self.choice == 'ones' and self.ones1 != 'full':
 			Yahtzoom.countmult(self, 1)
 			self.total1 = self.total
