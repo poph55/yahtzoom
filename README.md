@@ -1,8 +1,14 @@
 # yahtzoom
 is yahtzee.!
 
+![alt text](http://cdn.pogo.com/v/Fm5NYg/img/game-thumbs/en/tn-huge-yahtzeesingleplayer.png "Yahtzee")
 
-Class Yahtzoom:
+
+#### Yahtzoom
+
+The plan was to make a playable game of yahtzee, but with some minor twists. We called our game Yahtzoom and it currently only supports singleplayer games, but we could hypothetically add more players rather easily using the code we already have written. 
+
+## Class Yahtzoom:
 	
 	functions:
 
@@ -46,3 +52,6 @@ Class Yahtzoom:
 		Yahtzoom
 			-Checks to see if there are 5 of any number, if there is, the variable "Yahtzoom" stores 50, if not it stores 0
 
+## Challenges
+
+The primary challenge we faced was in debugging. There were so many different combinations of actions, with so many user inputs, that ensuring they all worked was actually very difficult. Our code ended up being far more complicated just because of constant checks to ensure that the user's inputs wouldn't break the code. We also ran into some difficulty 

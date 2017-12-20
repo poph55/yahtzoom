@@ -3,7 +3,9 @@ from DiceClass import Dice
 import sys
 #Class for our game Yahtzoom
 
-# 
+# We have to initialize a lot of stuff at the beginning, mostly stuff that deals with
+# scoring as that is something that has to carry through all the functions.
+
 class Yahtzoom:
 	def __init__(self, list1):
 		self.list1 = list1
@@ -36,13 +38,18 @@ class Yahtzoom:
 		self.yahtzoom1 = 0
 		self.johnstamos = 0
 
-	#This function allows you to select which dice you want to reroll and allows you to make this selection twice
+	#This function allows you to select which dice you want to reroll and allows you to make this selection twice if you want
 
 	def reroll(self,list1):
 		rollagain = []
 		self.list1 = list1
 		while 1==1:
-			rerollinput = int(input("What dice would you like to reroll?"))
+			while 1 == 1:
+				try:
+					rerollinput = int(input("What dice would you like to reroll?"))
+					break
+				except:
+					print("That is not valid.")
 			while rerollinput != 1 and rerollinput != 2 and rerollinput !=3 and rerollinput != 4 and rerollinput != 5 and rerollinput != 6:
 				while rerollinput != 0:
 					try:
@@ -63,7 +70,8 @@ class Yahtzoom:
 			self.list1[rollagain[clock-1]-1] = die6.value
 
 
-	#All the different categories for yahtzee
+	#All the different categories for yahtzee, some are conditional and some are not
+	#the ones that are conditional give you 0 points if you select them without meeting the conditions
 
 	#This functions works for ones through sixes
 	def countmult(self, number):
@@ -77,11 +85,11 @@ class Yahtzoom:
 		else:
 			self.total7 = sum(self.list1)
 
-	#three of a kind a four of a kind have the same scoring
+	#three of a kind and four of a kind have the same scoring, just different conditions. The conditions are cleared below.
 	def threefour(self):
 		self.total = sum(self.list1)
 
-	#full house scoring
+	#full house scoring, sorts the list and checks to see if either the first 2 and the last 3 are equal, or the first 3 and the last 2 are equal
 	def fullhouse(self):
 		try:
 			self.list1.sort()
@@ -90,6 +98,7 @@ class Yahtzoom:
 		except:
 			self.total10 = 0
 
+	#sorts the dice and checks the dice 1-4 and 2-5 to see if they are in order
 	def smallstraight(self):
 		try:
 			self.list1 = list(set(self.list1))
@@ -98,7 +107,7 @@ class Yahtzoom:
 		except:
 			self.total11 = 0
 
-	#doesnt work properly
+	#sorts the dice and checks the dice 1-5 to see if they are in order
 	def largestraight(self):
 		try:
 			self.list1.sort()
