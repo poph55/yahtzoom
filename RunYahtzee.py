@@ -1,6 +1,7 @@
 #Runner Class
 from DiceClass import Dice
 from YahtzeeClass import Yahtzoom
+import sys
 list1 = []
 finaltotal = []
 game1 = Yahtzoom(list1) 
@@ -44,10 +45,12 @@ for x in range(0,13):
 			again = str(input('Would you like to roll your dice again? Y/N  \n'))
 		if again == 'y':
 			game1.reroll(list1)
+		#sys.os('clear')
 		print('Here are you final dice rolls: \n')
 		print(list1)
 
 	elif again =='n':
+		#sys.os('clear')
 		print('Here are you final dice rolls: \n')
 		print(list1)
 	#Picking a cateogory Function
