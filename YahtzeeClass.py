@@ -2,6 +2,7 @@ import random
 from DiceClass import Dice
 import sys
 #Class for our game Yahtzoom
+#large straight isnt working properly
 class Yahtzoom:
 	def __init__(self, list1):
 		self.list1 = list1
@@ -26,9 +27,9 @@ class Yahtzoom:
 		self.fours1 = 0
 		self.fives1 = 0
 		self.sixes1 = 0
-		self.threekind = 0
-		self.fourkind = 0
-		self.chance = 0
+		self.threekind1 = 0
+		self.fourkind1 = 0
+		self.chance1 = 0
 		self.sstraight = 0
 		self.lstraight = 0
 		self.yahtzoom1 = 0
@@ -47,7 +48,7 @@ class Yahtzoom:
 						rerollinput = int(input("What dice would you like to reroll?"))
 						break
 					except:
-						print("That ain't valid you yellow-bellied sap sucker.")
+						print("That is not valid.")
 				if rerollinput == 0:
 					break
 			if rerollinput == 0:
@@ -60,20 +61,26 @@ class Yahtzoom:
 			die6.roll()
 			self.list1[rollagain[clock-1]-1] = die6.value
 
+
+	#All the different categories for yahtzee
+
+	#This functions works for ones through sixes
 	def countmult(self, number):
 		self.number = number
 		self.total = self.list1.count(self.number)*self.number
 	
-
+	#We added our own twist to chance that if the sum of the list equals 17, you get 40 points
 	def chance(self):
-		if sum(self.list == 17):
+		if sum(self.list1 == 17):
 			self.total7 = 40
 		else:
 			self.total7 = sum(self.list1)
 
+	#three of a kind a four of a kind have the same scoring
 	def threefour(self):
 		self.total = sum(self.list1)
 
+	#full house scoring
 	def fullhouse(self):
 		self.list1.sort()
 		if (self.list1[0] == self.list1[1] and self.list1[1] == self.list1[2] and self.list1[3] == self.list1[4]) or (self.list1[0] == self.list1[1] and self.list1[2] == self.list1[3] and self.list1[3] == self.list1[4]):
@@ -88,32 +95,35 @@ class Yahtzoom:
 		else:
 			self.total11 = 0
 
+	#doesnt work properly
 	def largestraight(self):
-		self.list.sort()
+		self.list1.sort()
 		if (self.list1[0] == self.list1[1]-1 and self.list1[1] == self.list1[2]-1 and self.list1[2] == self.list1[3]-1 and self.list1[3] == self.list1[4]-1):
 			self.total12 = 40
 		else:
 			self.total12 = 0
 
 
-	#Special print if you get Yahtzee
+	#Special print if you get YAHTZOOM
 	def yahtzoom(self):
-		if (die1.value == die2.value and die2.value == die3.value and die3.value == die4.value and die4.value == die5.value):
+		if (self.list1[0] == self.list1[1] and self.list1[1] == self.list1[2] and self.list1[2] == self.list1[3] and self.list1[3 == self.list1[4]]):
 			self.total13 = 50
 
-		print("▓██   ██▓ ▄▄▄       ██░ ██ ▄▄▄█████▓▒███████▒ ▒█████   ▒█████   ███▄ ▄███▓")
-		print(" ▒██  ██▒▒████▄    ▓██░ ██▒▓  ██▒ ▓▒▒ ▒ ▒ ▄▀░▒██▒  ██▒▒██▒  ██▒▓██▒▀█▀ ██▒")
-		print("  ▒██ ██░▒██  ▀█▄  ▒██▀▀██░▒ ▓██░ ▒░░ ▒ ▄▀▒░ ▒██░  ██▒▒██░  ██▒▓██    ▓██░")
-		print("  ░ ▐██▓░░██▄▄▄▄██ ░▓█ ░██ ░ ▓██▓ ░   ▄▀▒   ░▒██   ██░▒██   ██░▒██    ▒██ ")
-		print("  ░ ██▒▓░ ▓█   ▓██▒░▓█▒░██▓  ▒██▒ ░ ▒███████▒░ ████▓▒░░ ████▓▒░▒██▒   ░██▒")
-		print("   ██▒▒▒  ▒▒   ▓▒█░ ▒ ░░▒░▒  ▒ ░░   ░▒▒ ▓░▒░▒░ ▒░▒░▒░ ░ ▒░▒░▒░ ░ ▒░   ░  ░")
-		print(" ▓██ ░▒░   ▒   ▒▒ ░ ▒ ░▒░ ░    ░    ░░▒ ▒ ░ ▒  ░ ▒ ▒░   ░ ▒ ▒░ ░  ░      ░")
-		print(" ▒ ▒ ░░    ░   ▒    ░  ░░ ░  ░      ░ ░ ░ ░ ░░ ░ ░ ▒  ░ ░ ░ ▒  ░      ░   ")
-		print(" ░ ░           ░  ░ ░  ░  ░           ░ ░        ░ ░      ░ ░         ░   ")
-		print(" ░ ░                                ░                                     ")
+			print("▓██   ██▓ ▄▄▄       ██░ ██ ▄▄▄█████▓▒███████▒ ▒█████   ▒█████   ███▄ ▄███▓")
+			print(" ▒██  ██▒▒████▄    ▓██░ ██▒▓  ██▒ ▓▒▒ ▒ ▒ ▄▀░▒██▒  ██▒▒██▒  ██▒▓██▒▀█▀ ██▒")
+			print("  ▒██ ██░▒██  ▀█▄  ▒██▀▀██░▒ ▓██░ ▒░░ ▒ ▄▀▒░ ▒██░  ██▒▒██░  ██▒▓██    ▓██░")
+			print("  ░ ▐██▓░░██▄▄▄▄██ ░▓█ ░██ ░ ▓██▓ ░   ▄▀▒   ░▒██   ██░▒██   ██░▒██    ▒██ ")
+			print("  ░ ██▒▓░ ▓█   ▓██▒░▓█▒░██▓  ▒██▒ ░ ▒███████▒░ ████▓▒░░ ████▓▒░▒██▒   ░██▒")
+			print("   ██▒▒▒  ▒▒   ▓▒█░ ▒ ░░▒░▒  ▒ ░░   ░▒▒ ▓░▒░▒░ ▒░▒░▒░ ░ ▒░▒░▒░ ░ ▒░   ░  ░")
+			print(" ▓██ ░▒░   ▒   ▒▒ ░ ▒ ░▒░ ░    ░    ░░▒ ▒ ░ ▒  ░ ▒ ▒░   ░ ▒ ▒░ ░  ░      ░")
+			print(" ▒ ▒ ░░    ░   ▒    ░  ░░ ░  ░      ░ ░ ░ ░ ░░ ░ ░ ▒  ░ ░ ░ ▒  ░      ░   ")
+			print(" ░ ░           ░  ░ ░  ░  ░           ░ ░        ░ ░      ░ ░         ░   ")
+			print(" ░ ░                                ░                                     ")
+		else:
+			self.total13 = 0
 
 
-		#Scoring Function
+		#Score choosing Function
 	def score(self):
 		print('Which category would you like your score to go into?')
 		self.choice = str(input('\n' + str(self.scorelist) + '\n'))
@@ -152,7 +162,7 @@ class Yahtzoom:
 			Yahtzoom.chance(self)
 			self.chance1 = 'full'
 			self.scorelist.remove('chance')
-		elif self.choice =='three-of-a-kind' and self.threekind != 'full':
+		elif self.choice =='three-of-a-kind' and self.threekind1 != 'full':
 			Yahtzoom.threefour(self)
 			self.total8 = self.total
 			self.threekind = 'full'
@@ -177,13 +187,13 @@ class Yahtzoom:
 		elif self.choice == 'yahtzoom' and self.yahtzoom1 != 'full':
 			Yahtzoom.yahtzoom(self)
 			self.yahtzoom1 = 'full'
-			self.scorelist.remove('yhatzoom')
+			self.scorelist.remove('yahtzoom')
 		else:
 			print('That is wrong')
 
 
 
-	#All of the categories that you can score with:
+	#Adding up the total scores
 
 
 	def totalscore(self):

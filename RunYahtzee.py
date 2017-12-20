@@ -3,7 +3,7 @@ from DiceClass import Dice
 from YahtzeeClass import Yahtzoom
 list1 = []
 finaltotal = []
-game1 = Yahtzoom(list1)
+game1 = Yahtzoom(list1) 
 #Executing the main functions
 #while len(game1.scorelist) > 0:
 for x in range(0,13):
