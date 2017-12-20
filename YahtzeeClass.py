@@ -50,6 +50,8 @@ class Yahtzoom:
 						break
 					except:
 						print("That is not valid.")
+				if rerollinput == 0:
+					break
 			if rerollinput == 0:
 				break
 			rollagain.append(rerollinput)
@@ -81,45 +83,50 @@ class Yahtzoom:
 
 	#full house scoring
 	def fullhouse(self):
-		self.list1.sort()
-		if (self.list1[0] == self.list1[1] and self.list1[1] == self.list1[2] and self.list1[3] == self.list1[4]) or (self.list1[0] == self.list1[1] and self.list1[2] == self.list1[3] and self.list1[3] == self.list1[4]):
-			self.total10 = 25
-		else:
+		try:
+			self.list1.sort()
+			if (self.list1[0] == self.list1[1] and self.list1[1] == self.list1[2] and self.list1[3] == self.list1[4]) or (self.list1[0] == self.list1[1] and self.list1[2] == self.list1[3] and self.list1[3] == self.list1[4]):
+				self.total10 = 25
+		except:
 			self.total10 = 0
 
 	def smallstraight(self):
-		self.list1 = list(set(self.list1))
-		if (self.list1[0] == self.list1[1]-1 and self.list1[1] == self.list1[2]-1 and self.list1[2] == self.list1[3]-1) or (self.list1[1] == self.list1[2]-1 and self.list1[2] == self.list1[3]-1 and self.list1[3] == self.list1[4]-1):
-			self.total11 = 30
-		else:
+		try:
+			self.list1 = list(set(self.list1))
+			if (self.list1[0] == self.list1[1]-1 and self.list1[1] == self.list1[2]-1 and self.list1[2] == self.list1[3]-1) or (self.list1[1] == self.list1[2]-1 and self.list1[2] == self.list1[3]-1 and self.list1[3] == self.list1[4]-1):
+				self.total11 = 30
+		except:
 			self.total11 = 0
 
 	#doesnt work properly
 	def largestraight(self):
-		self.list1.sort()
-		if (self.list1[0] == self.list1[1]-1 and self.list1[1] == self.list1[2]-1 and self.list1[2] == self.list1[3]-1 and self.list1[3] == self.list1[4]-1):
-			self.total12 = 40
-		else:
+		try:
+			self.list1.sort()
+			if (self.list1[0] == self.list1[1]-1 and self.list1[1] == self.list1[2]-1 and self.list1[2] == self.list1[3]-1 and self.list1[3] == self.list1[4]-1):
+				self.total12 = 40
+		except:
 			self.total12 = 0
 
 
 	#Special print if you get YAHTZOOM
 	def yahtzoom(self):
-		if (self.list1[0] == self.list1[1] and self.list1[1] == self.list1[2] and self.list1[2] == self.list1[3] and self.list1[3 == self.list1[4]]):
-			self.total13 = 50
+		#sys.os('clear')
+		try:
+			if (self.list1[0] == self.list1[1] and self.list1[1] == self.list1[2] and self.list1[2] == self.list1[3] and self.list1[3 == self.list1[4]]):
+				self.total13 = 50
 
-			sys.os('clear')
-			print("▓██   ██▓ ▄▄▄       ██░ ██ ▄▄▄█████▓▒███████▒ ▒█████   ▒█████   ███▄ ▄███▓")
-			print(" ▒██  ██▒▒████▄    ▓██░ ██▒▓  ██▒ ▓▒▒ ▒ ▒ ▄▀░▒██▒  ██▒▒██▒  ██▒▓██▒▀█▀ ██▒")
-			print("  ▒██ ██░▒██  ▀█▄  ▒██▀▀██░▒ ▓██░ ▒░░ ▒ ▄▀▒░ ▒██░  ██▒▒██░  ██▒▓██    ▓██░")
-			print("  ░ ▐██▓░░██▄▄▄▄██ ░▓█ ░██ ░ ▓██▓ ░   ▄▀▒   ░▒██   ██░▒██   ██░▒██    ▒██ ")
-			print("  ░ ██▒▓░ ▓█   ▓██▒░▓█▒░██▓  ▒██▒ ░ ▒███████▒░ ████▓▒░░ ████▓▒░▒██▒   ░██▒")
-			print("   ██▒▒▒  ▒▒   ▓▒█░ ▒ ░░▒░▒  ▒ ░░   ░▒▒ ▓░▒░▒░ ▒░▒░▒░ ░ ▒░▒░▒░ ░ ▒░   ░  ░")
-			print(" ▓██ ░▒░   ▒   ▒▒ ░ ▒ ░▒░ ░    ░    ░░▒ ▒ ░ ▒  ░ ▒ ▒░   ░ ▒ ▒░ ░  ░      ░")
-			print(" ▒ ▒ ░░    ░   ▒    ░  ░░ ░  ░      ░ ░ ░ ░ ░░ ░ ░ ▒  ░ ░ ░ ▒  ░      ░   ")
-			print(" ░ ░           ░  ░ ░  ░  ░           ░ ░        ░ ░      ░ ░         ░   ")
-			print(" ░ ░                                ░                                     ")
-		else:
+				sys.os('clear')
+				print("▓██   ██▓ ▄▄▄       ██░ ██ ▄▄▄█████▓▒███████▒ ▒█████   ▒█████   ███▄ ▄███▓")
+				print(" ▒██  ██▒▒████▄    ▓██░ ██▒▓  ██▒ ▓▒▒ ▒ ▒ ▄▀░▒██▒  ██▒▒██▒  ██▒▓██▒▀█▀ ██▒")
+				print("  ▒██ ██░▒██  ▀█▄  ▒██▀▀██░▒ ▓██░ ▒░░ ▒ ▄▀▒░ ▒██░  ██▒▒██░  ██▒▓██    ▓██░")
+				print("  ░ ▐██▓░░██▄▄▄▄██ ░▓█ ░██ ░ ▓██▓ ░   ▄▀▒   ░▒██   ██░▒██   ██░▒██    ▒██ ")
+				print("  ░ ██▒▓░ ▓█   ▓██▒░▓█▒░██▓  ▒██▒ ░ ▒███████▒░ ████▓▒░░ ████▓▒░▒██▒   ░██▒")
+				print("   ██▒▒▒  ▒▒   ▓▒█░ ▒ ░░▒░▒  ▒ ░░   ░▒▒ ▓░▒░▒░ ▒░▒░▒░ ░ ▒░▒░▒░ ░ ▒░   ░  ░")
+				print(" ▓██ ░▒░   ▒   ▒▒ ░ ▒ ░▒░ ░    ░    ░░▒ ▒ ░ ▒  ░ ▒ ▒░   ░ ▒ ▒░ ░  ░      ░")
+				print(" ▒ ▒ ░░    ░   ▒    ░  ░░ ░  ░      ░ ░ ░ ░ ░░ ░ ░ ▒  ░ ░ ░ ▒  ░      ░   ")
+				print(" ░ ░           ░  ░ ░  ░  ░           ░ ░        ░ ░      ░ ░         ░   ")
+				print(" ░ ░                                ░                                     ")
+		except:
 			self.total13 = 0
 
 
