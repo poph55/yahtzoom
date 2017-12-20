@@ -71,7 +71,7 @@ class Yahtzoom:
 	
 	#We added our own twist to chance that if the sum of the list equals 17, you get 40 points
 	def chance(self):
-		if sum(self.list1 == 17):
+		if sum(self.list1) == 17:
 			self.total7 = 40
 		else:
 			self.total7 = sum(self.list1)
