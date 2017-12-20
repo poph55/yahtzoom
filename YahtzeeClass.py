@@ -164,13 +164,20 @@ class Yahtzoom:
 			self.chance1 = 'full'
 			self.scorelist.remove('chance')
 		elif self.choice =='three-of-a-kind' and self.threekind1 != 'full':
-			Yahtzoom.threefour(self)
-			self.total8 = self.total
+			self.list1.sort()
+			if (self.list1[0] == self.list1[1] and self.list1[1] == self.list1[2]) or (self.list1[1] == self.list1[2] and self.list1[2] == self.list1[3]) or (self.list1[2] == self.list1[3] and self.list1[3] == self.list1[4]):
+				Yahtzoom.threefour(self)
+				self.total8 = self.total
+			else:
+				self.total8 = 0
 			self.threekind = 'full'
 			self.scorelist.remove('three-of-a-kind')
 		elif self.choice =='four-of-a-kind' and self.fourkind1 != 'full':
-			Yahtzoom.threefour(self)
-			self.total9 = self.total
+			if (self.list1[0] == self.list1[1] and self.list1[1] == self.list1[2] and self.list[2] == self.list1[3]) or (self.list1[1] == self.list1[2] and self.list1[2] == self.list1[3] and self.list1[3] == self.list1[4]):
+				Yahtzoom.threefour(self)
+				self.total9 = self.total
+			else:
+				self.total9 = 0
 			self.fourkind1 = 'full'
 			self.scorelist.remove('four-of-a-kind')
 		elif self.choice == 'full-house' and self.johnstamos != 'full':
