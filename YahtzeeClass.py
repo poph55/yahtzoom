@@ -2,7 +2,8 @@ import random
 from DiceClass import Dice
 import sys
 #Class for our game Yahtzoom
-#large straight isnt working properly
+
+# 
 class Yahtzoom:
 	def __init__(self, list1):
 		self.list1 = list1
@@ -35,8 +36,8 @@ class Yahtzoom:
 		self.yahtzoom1 = 0
 		self.johnstamos = 0
 
+	#This function allows you to select which dice you want to reroll and allows you to make this selection twice
 
-	#Function that selects which one that you want to rhttp://collabedit.com/eroll
 	def reroll(self,list1):
 		rollagain = []
 		self.list1 = list1
@@ -49,8 +50,6 @@ class Yahtzoom:
 						break
 					except:
 						print("That is not valid.")
-				if rerollinput == 0:
-					break
 			if rerollinput == 0:
 				break
 			rollagain.append(rerollinput)
@@ -109,6 +108,7 @@ class Yahtzoom:
 		if (self.list1[0] == self.list1[1] and self.list1[1] == self.list1[2] and self.list1[2] == self.list1[3] and self.list1[3 == self.list1[4]]):
 			self.total13 = 50
 
+			sys.os('clear')
 			print("▓██   ██▓ ▄▄▄       ██░ ██ ▄▄▄█████▓▒███████▒ ▒█████   ▒█████   ███▄ ▄███▓")
 			print(" ▒██  ██▒▒████▄    ▓██░ ██▒▓  ██▒ ▓▒▒ ▒ ▒ ▄▀░▒██▒  ██▒▒██▒  ██▒▓██▒▀█▀ ██▒")
 			print("  ▒██ ██░▒██  ▀█▄  ▒██▀▀██░▒ ▓██░ ▒░░ ▒ ▄▀▒░ ▒██░  ██▒▒██░  ██▒▓██    ▓██░")
@@ -123,7 +123,11 @@ class Yahtzoom:
 			self.total13 = 0
 
 
-		#Score choosing Function
+		#Score choosing Function, depending on what you select for where your score should go, 
+		#the following lines of code run the proper function for determining your score and assign it to a variable 
+		#that is stored. We also set a variable to full, which prevents the user from entering multiple rolls for the same score.
+		#We also remove that scoring option from the list, so that the user isn't even presented the option to select it.
+
 	def score(self):
 		print('Which category would you like your score to go into?')
 		self.choice = str(input('\n' + str(self.scorelist) + '\n'))
@@ -196,18 +200,22 @@ class Yahtzoom:
 			Yahtzoom.fullhouse(self)
 			self.johnstamos = 'full'
 			self.scorelist.remove('full-house')
+
 		elif self.choice == 'small-straight' and self.sstraight != 'full':
 			Yahtzoom.smallstraight(self)
 			self.sstraight = 'full'
 			self.scorelist.remove('small-straight')
+
 		elif self.choice == 'large-straight' and self.lstraight != 'full':
 			Yahtzoom.largestraight(self)
 			self.lstraight = 'full'
 			self.scorelist.remove('large-straight')
+
 		elif self.choice == 'yahtzoom' and self.yahtzoom1 != 'full':
 			Yahtzoom.yahtzoom(self)
 			self.yahtzoom1 = 'full'
 			self.scorelist.remove('yahtzoom')
+
 		else:
 			print('That is wrong')
 
